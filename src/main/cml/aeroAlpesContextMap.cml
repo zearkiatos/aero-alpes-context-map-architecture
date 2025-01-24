@@ -1,0 +1,28 @@
+ContextMap aeroAlpesContextMap {
+    type = SYSTEM_LANDSCAPE
+    state = TO_BE
+
+    // contains CustomerContext, ProviderContext, FlightContext, ReserveContext, PaymentContext
+    contains CustomerContext, FlightContext, ProviderContext, ReserveContext, PaymentContext
+
+    CustomerContext [U]->[D] FlightContext
+    FlightContext [U]->[D] ProviderContext
+    CustomerContext [U]->[D] ReserveContext
+    CustomerContext [U]->[D] PaymentContext
+    PaymentContext [U]->[D] ReserveContext
+}
+
+BoundedContext CustomerContext {
+}
+
+BoundedContext FlightContext {
+}
+
+BoundedContext ProviderContext {
+}
+
+BoundedContext ReserveContext {
+}
+
+BoundedContext PaymentContext {
+}
